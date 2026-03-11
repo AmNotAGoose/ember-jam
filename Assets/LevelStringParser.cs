@@ -6,10 +6,11 @@ public struct ParsedGrid
 {
     public int width;
     public int height;
-    public List<GridObject> objects;
+    public int layers;
+    public List<ParsedTileObject> objects;
 }
 
-public struct GridObject
+public struct ParsedTileObject
 {
     public string type;
     public int x;
@@ -21,7 +22,7 @@ public struct GridObject
 public class LevelStringParser
 {
     /* 
-        width|height|=|type,x,y,layer,option1,option2,...
+        width|height|layer|=|type,x,y,layer,option1,option2,...
     */
     public static ParsedGrid GetParsedLevel(string levelString)
     {
@@ -32,28 +33,29 @@ public class LevelStringParser
         string[] frontmatter = splitLevel[0].Split("|");
         parsedGrid.width = int.Parse(frontmatter[0]);
         parsedGrid.height = int.Parse(frontmatter[1]);
+        parsedGrid.layers = int.Parse(frontmatter[2]);
 
-        string[] body = splitLevel[1].Split("|");
-        List<GridObject> gridObjects = new();
-        for (int i = 0; i < body.Length; i++)
+        List<ParsedTileObject> gridObjects = new();
+
+        if (!string.IsNullOrWhiteSpace(splitLevel[1]))
         {
-            string[] curOptions = body[i].Split(",");
-            GridObject curObj = new();
-
-            curObj.type =  curOptions[0];
-            curObj.x = int.Parse(curOptions[1]);
-            curObj.y = int.Parse(curOptions[2]);
-            curObj.layer = int.Parse(curOptions[3]);
-
-            if (curOptions.Length >= 5)
+            string[] body = splitLevel[1].Split("|");
+            for (int i = 0; i < body.Length; i++)
             {
-                curObj.options = curOptions[4..].ToList();
+                string[] curOptions = body[i].Split(",");
+                ParsedTileObject curObj = new();
+
+                curObj.type = curOptions[0];
+                curObj.x = int.Parse(curOptions[1]);
+                curObj.y = int.Parse(curOptions[2]);
+                curObj.layer = int.Parse(curOptions[3]);
+                curObj.options = curOptions.Length >= 5 ? curOptions[4..].ToList() : new List<string>();
+
+                gridObjects.Add(curObj);
             }
-
-            gridObjects.Add(curObj);
         }
-        parsedGrid.objects = gridObjects;
 
+        parsedGrid.objects = gridObjects;
         return parsedGrid;
     }
 }
