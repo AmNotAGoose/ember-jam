@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : TileObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        type = "player";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -27,7 +27,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        Initialize("5|5|3|=|");
+        Initialize("5|5|3|=|player,3,3,1");
     }
 
     public void Initialize(string levelString)
