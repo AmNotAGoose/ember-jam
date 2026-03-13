@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Layer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int startingLayer;
+    public int curLayer;
+
+    public void SetStartingLayer(int layer)
     {
-        
+        startingLayer = layer;
+        curLayer = layer;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
