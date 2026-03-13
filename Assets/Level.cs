@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level : MonoBehaviour
 {
     public int width;
     public int height;
-    public int layers;
+    public int numLayers;
 
     int roomScaleFactor = 1;
 
@@ -17,6 +18,7 @@ public class Level : MonoBehaviour
     public GameObject tilePrefab;
 
     public Tile[,,] tiles;
+    public List<Layer> layers;
 
     [System.Serializable]
     public struct TileObjectPrefabEntry
@@ -28,7 +30,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        Initialize("5|5|3|=|player,3,3,0");
+        Initialize("5|5|3|=|player,3,3,0|wall,4,3,0|block,2,3,0");
     }
 
     public void Initialize(string levelString)
@@ -37,30 +39,37 @@ public class Level : MonoBehaviour
 
         width = parsedGrid.width;
         height = parsedGrid.height;
-        layers = parsedGrid.layers;
+        numLayers = parsedGrid.layers;
 
-        if (width == 0 || height == 0 || layers == 0) return;
-        tiles = new Tile[width, height, layers];
+        if (width == 0 || height == 0 || numLayers == 0) return;
+        tiles = new Tile[width, height, numLayers];
 
-        for (int k = 0; k < layers; k++) // layers
+        for (int k = 0; k < numLayers; k++) // layers
         {
-            GameObject curLayer = Instantiate(layerParentPrefab, Vector3.zero, Quaternion.identity);
-            curLayer.transform.SetParent(gridParent.transform);
-            curLayer.transform.localPosition = Vector3.zero;
-            curLayer.GetComponent<Layer>().SetStartingLayer(k);
+            GameObject curLayerObj = Instantiate(layerParentPrefab, Vector3.zero, Quaternion.identity);
+            curLayerObj.transform.SetParent(gridParent.transform);
+            curLayerObj.transform.localPosition = Vector3.zero;
+
+            Layer curLayer = curLayerObj.GetComponent<Layer>();
+            curLayer.SetStartingLayer(k);
+            layers.Add(curLayer);
 
             for (int i = 0; i < width; i++) // width
             {
                 for (int j = 0; j < height; j++) // height
                 {
-                    GameObject curTile = Instantiate(tilePrefab, Vector3.zero, Quaternion.identity);
-                    curTile.transform.SetParent(curLayer.transform);
-                    curTile.transform.localPosition = new Vector3(
+                    GameObject curTileObj = Instantiate(tilePrefab, Vector3.zero, Quaternion.identity);
+                    curTileObj.transform.SetParent(curLayerObj.transform);
+                    curTileObj.transform.localPosition = new Vector3(
                         i - (width - 1) / 2f,
                         j - (height - 1) / 2f,
                         0
                     );
-                    tiles[i, j, k] = curTile.GetComponent<Tile>();
+                    Tile curTile = curTileObj.GetComponent<Tile>();
+                    curTile.x = i;
+                    curTile.y = j;
+                    curTile.k = k;
+                    tiles[i, j, k] = curTile;
                 }
             }
         }
@@ -78,7 +87,7 @@ public class Level : MonoBehaviour
 
     public Tile GetTile(int x, int y, int k)
     {
-        if (x < 0 || x >= width || y < 0 || y >= height || k < 0 || k >= layers) return null;
+        if (x < 0 || x >= width || y < 0 || y >= height || k < 0 || k >= numLayers) return null;
         return tiles[x, y, k];
     }
 
@@ -90,13 +99,19 @@ public class Level : MonoBehaviour
         int curY = objTile.y;
         int curK = objTile.k;
 
+        List<Tile> affectedTiles = new();
         bool canMove = false;
 
-        while (true)    
+        int temp = 0;
+        while (temp < 10)
         {
             Tile curTile = GetTile(curX, curY, curK);
+
             if (curTile == null) break;
             if (curTile.IsStopping()) break;
+
+            affectedTiles.Add(curTile); // theres something here that can be pushed or moved through
+
             if (curTile.IsPushable())
             {
                 curX += x;
@@ -106,7 +121,20 @@ public class Level : MonoBehaviour
 
             // if its not stopper, not pushable, and in bounds, then we can move for sure
             canMove = true;
+            break;
         }
+
+        if (!canMove) return;
+
+        List<TileObject> poppedObjects = new();
+        foreach (Tile tile in affectedTiles)
+        {
+            List<TileObject> nextPoppedObjects = tile.PopObjects(TileObjectProperies.Pushable);
+            tile.AddObjects(poppedObjects);
+            poppedObjects = nextPoppedObjects;
+        } // the last one should not have any pushable as defined earlier
+
+
     }
 
     public void TryDrop(TileObject objectToDrop)

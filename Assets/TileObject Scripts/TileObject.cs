@@ -16,5 +16,8 @@ public abstract class TileObject : MonoBehaviour
     public SpriteRenderer sprite;
 
     public virtual void OnTileObjectRemoved() { }
-    public virtual void OnTileObjectAdded() { }
+    public virtual void OnTileObjectAdded()
+    {
+        transform.localPosition = Vector3.zero; //temp for now w/o animaiton
+    }
 }

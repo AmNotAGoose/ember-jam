@@ -11,7 +11,7 @@ public class Tile : MonoBehaviour
     public int k;
     public List<TileObject> tileObjects;
 
-    public List<TileObject> PopObject(TileObjectProperies property)
+    public List<TileObject> PopObjects(TileObjectProperies property)
     {
         List<TileObject> objs = tileObjects.FindAll(o => o.properties.Contains(property));
 
@@ -26,19 +26,27 @@ public class Tile : MonoBehaviour
 
     public void AddObject(TileObject objectToAdd)
     {
-        tileObjects.Append(objectToAdd);
+        tileObjects.Add(objectToAdd);
         objectToAdd.tile = this;
         objectToAdd.transform.SetParent(transform);
         objectToAdd.OnTileObjectAdded();
     }
 
+    public void AddObjects(List<TileObject> objectsToAdd)
+    {
+        foreach (TileObject obj in objectsToAdd)
+        {
+            AddObject(obj);
+        }
+    }
+
     public bool IsPushable()
     {
-        return tileObjects.All(o => o.properties.Contains(TileObjectProperies.Pushable));
+        return tileObjects.Count > 0 && tileObjects.All(o => o.properties.Contains(TileObjectProperies.Pushable));
     }
 
     public bool IsStopping()
     {
-        return tileObjects.All(o => o.properties.Contains(TileObjectProperies.Stopper));
+        return tileObjects.Count > 0 && tileObjects.All(o => o.properties.Contains(TileObjectProperies.Stopper));
     }
 }

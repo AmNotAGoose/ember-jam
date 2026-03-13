@@ -424,6 +424,10 @@ MonoBehaviour:
   tileObjectPrefabs:
   - type: player
     prefab: {fileID: 957213373954285787, guid: 62f9c2abcd2f55c4a8ad5f7117970737, type: 3}
+  - type: wall
+    prefab: {fileID: 957213373954285787, guid: 769b70ba474a4784c9a9ed45801f22c5, type: 3}
+  - type: block
+    prefab: {fileID: 957213373954285787, guid: c78d64b91b9234f4782b50f16c42f818, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
