@@ -54,8 +54,8 @@ public class Level : MonoBehaviour
             curLayerObj.transform.localPosition = Vector3.zero;
 
             Layer curLayer = curLayerObj.GetComponent<Layer>();
+            curLayer.totalLayers = numLayers;
             curLayer.startingLayer = k;
-            curLayer.SetLayerActive(curLayerIdx);
             layers.Add(curLayer);
 
             for (int i = 0; i < width; i++) // width
@@ -87,9 +87,14 @@ public class Level : MonoBehaviour
         {
             GameObject curTileObject = Instantiate(prefabDict[parsedTileObject.type], Vector3.zero, Quaternion.identity);
             Tile curTile = tiles[parsedTileObject.x, parsedTileObject.y, parsedTileObject.layer];
-            //curTileObject.transform.SetParent(curTile.transform);
             curTile.AddObject(curTileObject.GetComponent<TileObject>());
         }
+
+        foreach (Layer curLayer in layers)
+        {
+            curLayer.SetLayerVisible(false);
+        }
+        layers[0].SetLayerVisible(true);
     }
 
     public Tile GetTile(int x, int y, int k)
@@ -166,9 +171,11 @@ public class Level : MonoBehaviour
 
     public void UpdateLayers()
     {
-        foreach (var layer in layers)
-        {
-            layer.SetLayerActive(player.tile.k);
-        }
+        int newLayerIdx = player.tile.k;
+        if (newLayerIdx == curLayerIdx) return;
+
+        layers[curLayerIdx].FadeLayerVisible(false);
+        layers[newLayerIdx].FadeLayerVisible(true);
+        curLayerIdx = newLayerIdx;
     }
 }

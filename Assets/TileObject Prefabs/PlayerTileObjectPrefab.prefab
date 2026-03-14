@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5322052647451398711}
   - component: {fileID: 5104053772727516638}
+  - component: {fileID: -2718636909189447270}
   m_Layer: 0
   m_Name: PlayerTileObjectPrefab
   m_TagString: Untagged
@@ -45,9 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87775f2f84be494981ea4988e72b99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  tile: {fileID: 0}
   objectId: 0
   type: player
+  properties: 
   sprite: {fileID: 2153118674990836651}
+--- !u!210 &-2718636909189447270
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957213373954285787}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &1487291751242311375
 GameObject:
   m_ObjectHideFlags: 0

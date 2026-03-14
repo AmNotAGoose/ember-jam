@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : TileObject
 {
     Level level;
+    int lastLayer = 0;
 
     void Start()
     {

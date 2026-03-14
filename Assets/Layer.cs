@@ -1,49 +1,80 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Layer : MonoBehaviour
 {
+    public int totalLayers; // holy shit this is SO bad the idx of the layer increases as the layers go deeper but we need to store total layers anyways for the sorting layers HIGH HIGH HIGH HIGH CORITSOL NEVER DOING ANOTHER GAME JAM WHILE HAVING IMPORTANT TESTS EVER AGAIN
+    public SortingGroup sortingGroup;
+    
     public int startingLayer;
-    public GameObject layerObject;
+    public bool isLastLayer;
 
-    public bool isLastLayer; 
+    SpriteRenderer[] renderers;
+    float duration = 1f;
 
-    public Animator animator;
-
-    private void Start()
+    public void RefreshRenderers()
     {
-        animator = GetComponent<Animator>();
+        sortingGroup.sortingOrder = totalLayers - startingLayer;
+        renderers = GetComponentsInChildren<SpriteRenderer>();
+        Debug.Log($"Layer {startingLayer} found {renderers.Length} renderers");
     }
 
-    public void SetLayerActive(int curLayer)
+    public void SetLayerVisible(bool isActive)
     {
-        if (isLastLayer)
+        RefreshRenderers();
+        SetAlpha(isActive ? 1 : 0);
+    }
+
+    public void FadeLayerVisible(bool fadeIn)
+    {
+        RefreshRenderers();
+        if (fadeIn)
         {
-            if (curLayer == startingLayer) Appear();
-            else if (curLayer == 0) Disappear();
-            return;
+            StartCoroutine(FadeIn());
+        } else
+        {
+            StartCoroutine(FadeOut());
         }
+    } 
 
-        if (curLayer == startingLayer) Appear();
-        else if (curLayer == startingLayer + 1) Disappear();
+    IEnumerator FadeIn()
+    {
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float progress = t / duration;
+            transform.localPosition = Vector3.up * Mathf.Lerp(-2f, 0f, progress);
+            SetAlpha(Mathf.Lerp(0f, 1f, progress));
+            yield return null;
+        }
+        transform.localPosition = Vector3.zero;
+        SetAlpha(1f);
     }
 
-    void Disappear() // DisappearToAbove
+    IEnumerator FadeOut()
     {
-        animator.Play("DisappearToAbove");
-        //gameObject.SetActive(false);
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float progress = t / duration;
+            transform.localPosition = Vector3.up * Mathf.Lerp(0f, 2f, progress);
+            SetAlpha(Mathf.Lerp(1f, 0f, progress));
+            yield return null;
+        }
+        transform.localPosition = Vector3.zero;
+        SetAlpha(0f);
     }
 
-    void Appear() // AppearingFromBelow
+    void SetAlpha(float alpha)
     {
-
-        animator.Play("AppearFromBelow");
-        //gameObject.SetActive(true);
-    }
-
-    IEnumerator PlayAnimation(string animationName)
-    {
-        animator.Play(animationName);
-        yield return null;
+        foreach (SpriteRenderer sr in renderers)
+        {
+            Color c = sr.color;
+            c.a = alpha;
+            sr.color = c;
+        }
     }
 }
