@@ -417,10 +417,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Level
   width: 0
   height: 0
-  layers: 0
+  numLayers: 0
+  curLayerIdx: 0
   gridParent: {fileID: 568413633}
   layerParentPrefab: {fileID: 8330538547460228780, guid: cf6be16ad3fddbd49b2075034527fdc6, type: 3}
   tilePrefab: {fileID: 6031100156145312152, guid: dc42d0c4d01e4f14f8790a7b45649bb5, type: 3}
+  layers: []
   tileObjectPrefabs:
   - type: player
     prefab: {fileID: 957213373954285787, guid: 62f9c2abcd2f55c4a8ad5f7117970737, type: 3}
@@ -428,6 +430,8 @@ MonoBehaviour:
     prefab: {fileID: 957213373954285787, guid: 769b70ba474a4784c9a9ed45801f22c5, type: 3}
   - type: block
     prefab: {fileID: 957213373954285787, guid: c78d64b91b9234f4782b50f16c42f818, type: 3}
+  - type: hole
+    prefab: {fileID: 957213373954285787, guid: afad395c19a722b45bac6fe8b7025049, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

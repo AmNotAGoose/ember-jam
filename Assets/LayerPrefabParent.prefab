@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5133545187889708203}
   - component: {fileID: -1761972543547950507}
+  - component: {fileID: 2675637223983000006}
   m_Layer: 0
   m_Name: LayerPrefabParent
   m_TagString: Untagged
@@ -45,4 +46,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Layer
   startingLayer: 0
-  curLayer: 0
+  layerObject: {fileID: 0}
+  isLastLayer: 0
+  animator: {fileID: 2675637223983000006}
+--- !u!95 &2675637223983000006
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330538547460228780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af0279677debba24aa1d86c55bb2a95b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

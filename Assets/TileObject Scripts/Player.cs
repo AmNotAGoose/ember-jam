@@ -10,6 +10,8 @@ public class Player : TileObject
 
         type = "player";
         properties.Add(TileObjectProperies.Pushable);
+
+        level.player = this;    
     }
 
     private void Update()
@@ -18,5 +20,11 @@ public class Player : TileObject
         else if (Input.GetKeyDown(KeyCode.DownArrow)) level.TryMoveOnLayer(this, 0, -1);
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) level.TryMoveOnLayer(this, -1, 0);
         else if (Input.GetKeyDown(KeyCode.RightArrow)) level.TryMoveOnLayer(this, 1, 0);
+    }
+
+    public override void OnAffectedTickFinished()
+    {
+        base.OnAffectedTickFinished();
+        level.UpdateLayers();
     }
 }

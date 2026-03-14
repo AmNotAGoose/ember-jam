@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class Hole : MonoBehaviour
+public class Hole : TileObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Level level;
+
     void Start()
     {
-        
+        level = FindFirstObjectByType<Level>();
+
+        type = "hole";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnAffectedTickFinished()
     {
-        
+        base.OnAffectedTickFinished();
+
+        if (tile.tileObjects.Count > 1) // hole is treated as a tile object
+        {
+            level.TryDrop(tile);
+        }
     }
 }

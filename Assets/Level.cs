@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     public int width;
     public int height;
     public int numLayers;
+    public int curLayerIdx = 0; // further down is higher
 
     int roomScaleFactor = 1;
 
@@ -19,6 +20,8 @@ public class Level : MonoBehaviour
 
     public Tile[,,] tiles;
     public List<Layer> layers;
+
+    public Player player;
 
     [System.Serializable]
     public struct TileObjectPrefabEntry
@@ -30,7 +33,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        Initialize("5|5|3|=|player,3,3,0|wall,4,3,0|block,2,3,0");
+        Initialize("5|5|3|=|player,3,3,0|wall,4,3,0|block,2,3,0|hole,1,1,0|hole,1,2,1|hole,1,3,2");
     }
 
     public void Initialize(string levelString)
@@ -51,7 +54,8 @@ public class Level : MonoBehaviour
             curLayerObj.transform.localPosition = Vector3.zero;
 
             Layer curLayer = curLayerObj.GetComponent<Layer>();
-            curLayer.SetStartingLayer(k);
+            curLayer.startingLayer = k;
+            curLayer.SetLayerActive(curLayerIdx);
             layers.Add(curLayer);
 
             for (int i = 0; i < width; i++) // width
@@ -69,10 +73,13 @@ public class Level : MonoBehaviour
                     curTile.x = i;
                     curTile.y = j;
                     curTile.k = k;
+                    curTile.layer = curLayer;
                     tiles[i, j, k] = curTile;
                 }
             }
         }
+
+        layers[^1].isLastLayer = true;
 
         Dictionary<string, GameObject> prefabDict = tileObjectPrefabs.ToDictionary(e => e.type, e => e.prefab);
 
@@ -102,8 +109,7 @@ public class Level : MonoBehaviour
         List<Tile> affectedTiles = new();
         bool canMove = false;
 
-        int temp = 0;
-        while (temp < 10)
+        while (true)
         {
             Tile curTile = GetTile(curX, curY, curK);
 
@@ -134,11 +140,35 @@ public class Level : MonoBehaviour
             poppedObjects = nextPoppedObjects;
         } // the last one should not have any pushable as defined earlier
 
-
+        foreach (Tile tile in affectedTiles)
+        {
+            tile.OnAffectedTickFinished();
+        }
     }
 
-    public void TryDrop(TileObject objectToDrop)
+    public void TryDrop(Tile objectTile)
     {
+        int x = objectTile.x;
+        int y = objectTile.y;
+        int objectLayer = objectTile.k;
 
+        int nextLayer = (objectLayer + 1) % numLayers;
+        Tile targetTile = GetTile(x, y, nextLayer); 
+
+        if (targetTile == null) return;
+        if (targetTile.IsStopping() || targetTile.IsPushable()) return; 
+
+        List<TileObject> popped = objectTile.PopObjects(TileObjectProperies.Pushable);
+        targetTile.AddObjects(popped);
+
+        targetTile.OnAffectedTickFinished();
+    }
+
+    public void UpdateLayers()
+    {
+        foreach (var layer in layers)
+        {
+            layer.SetLayerActive(player.tile.k);
+        }
     }
 }

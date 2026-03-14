@@ -10,6 +10,7 @@ public class Tile : MonoBehaviour
     public int y;
     public int k;
     public List<TileObject> tileObjects;
+    public Layer layer;
 
     public List<TileObject> PopObjects(TileObjectProperies property)
     {
@@ -42,11 +43,19 @@ public class Tile : MonoBehaviour
 
     public bool IsPushable()
     {
-        return tileObjects.Count > 0 && tileObjects.All(o => o.properties.Contains(TileObjectProperies.Pushable));
+        return tileObjects.Any(o => o.properties.Contains(TileObjectProperies.Pushable))
+            && !tileObjects.Any(o => o.properties.Contains(TileObjectProperies.Stopper));
     }
 
     public bool IsStopping()
     {
-        return tileObjects.Count > 0 && tileObjects.All(o => o.properties.Contains(TileObjectProperies.Stopper));
+        return tileObjects.Count > 0 && tileObjects.Any(o => o.properties.Contains(TileObjectProperies.Stopper));
+    }
+    public void OnAffectedTickFinished()
+    {
+        foreach (TileObject tileObject in tileObjects.ToList()) // this is a patch fix dont need to make a copy of objects
+        {
+            tileObject.OnAffectedTickFinished();
+        }
     }
 }

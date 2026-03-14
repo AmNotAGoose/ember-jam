@@ -1,15 +1,49 @@
+using System.Collections;
 using UnityEngine;
 
 public class Layer : MonoBehaviour
 {
     public int startingLayer;
-    public int curLayer;
+    public GameObject layerObject;
 
-    public void SetStartingLayer(int layer)
+    public bool isLastLayer; 
+
+    public Animator animator;
+
+    private void Start()
     {
-        startingLayer = layer;
-        curLayer = layer;
+        animator = GetComponent<Animator>();
     }
 
+    public void SetLayerActive(int curLayer)
+    {
+        if (isLastLayer)
+        {
+            if (curLayer == startingLayer) Appear();
+            else if (curLayer == 0) Disappear();
+            return;
+        }
 
+        if (curLayer == startingLayer) Appear();
+        else if (curLayer == startingLayer + 1) Disappear();
+    }
+
+    void Disappear() // DisappearToAbove
+    {
+        animator.Play("DisappearToAbove");
+        //gameObject.SetActive(false);
+    }
+
+    void Appear() // AppearingFromBelow
+    {
+
+        animator.Play("AppearFromBelow");
+        //gameObject.SetActive(true);
+    }
+
+    IEnumerator PlayAnimation(string animationName)
+    {
+        animator.Play(animationName);
+        yield return null;
+    }
 }

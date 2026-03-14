@@ -20,4 +20,5 @@ public abstract class TileObject : MonoBehaviour
     {
         transform.localPosition = Vector3.zero; //temp for now w/o animaiton
     }
+    public virtual void OnAffectedTickFinished() { }
 }
