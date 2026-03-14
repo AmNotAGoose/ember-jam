@@ -8,22 +8,39 @@ public class Layer : MonoBehaviour
     public SortingGroup sortingGroup;
     
     public int startingLayer;
-    public bool isLastLayer;
+    public bool isLastLayer; // and not to mention we wouldnt even need this flag if the idx went the other way
 
     SpriteRenderer[] renderers;
-    float duration = 1f;
+    float duration = 0.2f;
+
+    Level level;
+
+    private void Start()
+    {
+        level = FindFirstObjectByType<Level>();  
+    }
 
     public void RefreshRenderers()
     {
         sortingGroup.sortingOrder = totalLayers - startingLayer;
-        renderers = GetComponentsInChildren<SpriteRenderer>();
-        Debug.Log($"Layer {startingLayer} found {renderers.Length} renderers");
+        renderers = GetComponentsInChildren<SpriteRenderer>(); 
     }
 
     public void SetLayerVisible(bool isActive)
     {
         RefreshRenderers();
         SetAlpha(isActive ? 1 : 0);
+    }
+
+    public void TransitionLayers(bool isApproaching)
+    {
+        if (isLastLayer && level.IsWinning() && !isApproaching)
+        {
+            level.Win();
+            //return;
+        }
+        StopAllCoroutines();
+        FadeLayerVisible(isApproaching);
     }
 
     public void FadeLayerVisible(bool fadeIn)
@@ -72,6 +89,7 @@ public class Layer : MonoBehaviour
     {
         foreach (SpriteRenderer sr in renderers)
         {
+            if (sr == null) continue; 
             Color c = sr.color;
             c.a = alpha;
             sr.color = c;

@@ -4,7 +4,8 @@ using UnityEngine;
 public enum TileObjectProperies
 {
     Pushable,
-    Stopper
+    Stopper,
+    Holdable
 }
 
 public abstract class TileObject : MonoBehaviour
@@ -14,6 +15,7 @@ public abstract class TileObject : MonoBehaviour
     public string type;
     public List<TileObjectProperies> properties;
     public SpriteRenderer sprite;
+    public List<string> options;
 
     public virtual void OnTileObjectRemoved() { }
     public virtual void OnTileObjectAdded()
@@ -21,4 +23,7 @@ public abstract class TileObject : MonoBehaviour
         transform.localPosition = Vector3.zero; //temp for now w/o animaiton
     }
     public virtual void OnAffectedTickFinished() { }
+    public virtual void OnPlayerMove() { }
+    public virtual void OnPicked() { }
+    public virtual void OnDropped(Tile newTile) { }
 }

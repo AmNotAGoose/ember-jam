@@ -21,7 +21,12 @@ public class Level : MonoBehaviour
     public Tile[,,] tiles;
     public List<Layer> layers;
 
+    public Dictionary<string, GameObject> prefabDict;
+
+    // set by various tileobject scripts
     public Player player;
+    public List<Goal> goals;
+    public List<TileObject> onPlayerMoveSubscribers;
 
     [System.Serializable]
     public struct TileObjectPrefabEntry
@@ -33,7 +38,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        Initialize("5|5|3|=|player,3,3,0|wall,4,3,0|block,2,3,0|hole,1,1,0|hole,1,2,1|hole,1,3,2");
+        Initialize("5|5|3|=|player,3,3,0|wall,4,3,0|block,2,3,0|hole,1,1,0|hole,1,2,1|hole,1,3,2|bomb,2,0,0,4");
     }
 
     public void Initialize(string levelString)
@@ -81,13 +86,15 @@ public class Level : MonoBehaviour
 
         layers[^1].isLastLayer = true;
 
-        Dictionary<string, GameObject> prefabDict = tileObjectPrefabs.ToDictionary(e => e.type, e => e.prefab);
+        prefabDict = tileObjectPrefabs.ToDictionary(e => e.type, e => e.prefab);
 
         foreach (ParsedTileObject parsedTileObject in parsedGrid.objects)
         {
             GameObject curTileObject = Instantiate(prefabDict[parsedTileObject.type], Vector3.zero, Quaternion.identity);
+            TileObject uhhhhhhhhhhhhhh = curTileObject.GetComponent<TileObject>();
+            uhhhhhhhhhhhhhh.options = parsedTileObject.options;
             Tile curTile = tiles[parsedTileObject.x, parsedTileObject.y, parsedTileObject.layer];
-            curTile.AddObject(curTileObject.GetComponent<TileObject>());
+            curTile.AddObject(uhhhhhhhhhhhhhh);
         }
 
         foreach (Layer curLayer in layers)
@@ -101,6 +108,34 @@ public class Level : MonoBehaviour
     {
         if (x < 0 || x >= width || y < 0 || y >= height || k < 0 || k >= numLayers) return null;
         return tiles[x, y, k];
+    }
+
+    public void TryMovePlayer(int x, int y)
+    {
+        TryMoveOnLayer(player, x, y);
+
+        foreach (TileObject playerMoveSubscriber in onPlayerMoveSubscribers)
+        {
+            playerMoveSubscriber.OnPlayerMove();
+        }
+
+        TryPickUpObject();
+    }
+
+    void TryPickUpObject()
+    {
+        if (player.heldObject != null) return;
+
+        TileObject objectToHold = player.tile.tileObjects.Find(o => o.properties.Contains(TileObjectProperies.Holdable));
+        if (objectToHold == null) return;
+        
+        player.HoldObject(objectToHold);
+    }
+
+    public void TryPlaceObject()
+    {
+        if (player.heldObject == null) return;
+        player.DropObject();
     }
 
     public void TryMoveOnLayer(TileObject objectToMove, int x, int y)
@@ -140,7 +175,7 @@ public class Level : MonoBehaviour
         List<TileObject> poppedObjects = new();
         foreach (Tile tile in affectedTiles)
         {
-            List<TileObject> nextPoppedObjects = tile.PopObjects(TileObjectProperies.Pushable);
+            List<TileObject> nextPoppedObjects = tile.PopObjectsByProperty(TileObjectProperies.Pushable);
             tile.AddObjects(poppedObjects);
             poppedObjects = nextPoppedObjects;
         } // the last one should not have any pushable as defined earlier
@@ -163,10 +198,15 @@ public class Level : MonoBehaviour
         if (targetTile == null) return;
         if (targetTile.IsStopping() || targetTile.IsPushable()) return; 
 
-        List<TileObject> popped = objectTile.PopObjects(TileObjectProperies.Pushable);
+        List<TileObject> popped = objectTile.PopObjectsByProperty(TileObjectProperies.Pushable);
         targetTile.AddObjects(popped);
 
         targetTile.OnAffectedTickFinished();
+    }
+
+    public void TickPlayerTile()
+    {
+        player.tile.OnAffectedTickFinished();
     }
 
     public void UpdateLayers()
@@ -174,8 +214,18 @@ public class Level : MonoBehaviour
         int newLayerIdx = player.tile.k;
         if (newLayerIdx == curLayerIdx) return;
 
-        layers[curLayerIdx].FadeLayerVisible(false);
-        layers[newLayerIdx].FadeLayerVisible(true);
+        layers[curLayerIdx].TransitionLayers(false);
+        layers[newLayerIdx].TransitionLayers(true);
         curLayerIdx = newLayerIdx;
+    }
+
+    public bool IsWinning()
+    {
+        return goals.All(goal => goal.satisfied);
+    }
+
+    public void Win()
+    {
+
     }
 }

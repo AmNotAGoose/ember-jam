@@ -14,6 +14,7 @@ public class Hole : TileObject
     public override void OnAffectedTickFinished()
     {
         base.OnAffectedTickFinished();
+        if (level == null) level = FindFirstObjectByType<Level>();
 
         if (tile.tileObjects.Count > 1) // hole is treated as a tile object
         {

@@ -12,7 +12,17 @@ public class Tile : MonoBehaviour
     public List<TileObject> tileObjects;
     public Layer layer;
 
-    public List<TileObject> PopObjects(TileObjectProperies property)
+    public TileObject PopObject(TileObject objectToRemove)
+    { 
+        if (tileObjects.Remove(objectToRemove))
+        {
+            objectToRemove.OnTileObjectRemoved();
+            return objectToRemove;
+        }
+        return null;
+    }
+
+    public List<TileObject> PopObjectsByProperty(TileObjectProperies property)
     {
         List<TileObject> objs = tileObjects.FindAll(o => o.properties.Contains(property));
 

@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class Goal : MonoBehaviour
+public class Goal : TileObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Level level;
+    public bool satisfied = false;
+
     void Start()
     {
-        
+        level = GetComponent<Level>();
+        level.goals.Add(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnAffectedTickFinished()
     {
-        
+        base.OnAffectedTickFinished();
+        satisfied = tile.tileObjects.Count > 1;
     }
 }
