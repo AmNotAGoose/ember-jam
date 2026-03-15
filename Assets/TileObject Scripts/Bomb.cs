@@ -27,9 +27,12 @@ public class Bomb : TileObject
         base.OnPicked();
         print("picked");
         tile.PopObject(this);
-        transform.SetParent(level.player.transform);
     }
-
+    public override void OnPickedFinished()
+    {
+        base.OnPickedFinished();
+        transform.SetParent(level.player.transform); 
+    }
     public override void OnDropped(Tile newTile)
     {
         base.OnDropped(newTile);

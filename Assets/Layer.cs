@@ -83,6 +83,9 @@ public class Layer : MonoBehaviour
         }
         transform.localPosition = Vector3.zero;
         SetAlpha(1f);
+
+        foreach (SpriteRenderer sr in level.player.GetComponentsInChildren<SpriteRenderer>())
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
     }
 
     IEnumerator FadeOut()
@@ -98,6 +101,9 @@ public class Layer : MonoBehaviour
         }
         transform.localPosition = Vector3.zero;
         SetAlpha(0f);
+
+        foreach (SpriteRenderer sr in level.player.GetComponentsInChildren<SpriteRenderer>())
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
     }
 
     void SetAlpha(float alpha)

@@ -54,4 +54,6 @@ public abstract class TileObject : MonoBehaviour
     public virtual void OnPlayerMove() { }
     public virtual void OnPicked() { }
     public virtual void OnDropped(Tile newTile) { }
+    public virtual void OnChangedLayers() { } // not implement
+    public virtual void OnPickedFinished() { }
 }

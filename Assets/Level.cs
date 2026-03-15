@@ -228,7 +228,6 @@ public class Level : MonoBehaviour
     {
         int newLayerIdx = player.tile.k;
         if (newLayerIdx == curLayerIdx) return;
-
         layers[curLayerIdx].TransitionLayers(false);
         layers[newLayerIdx].TransitionLayers(true);
         curLayerIdx = newLayerIdx;

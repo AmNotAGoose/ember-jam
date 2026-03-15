@@ -3,47 +3,31 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameResources", menuName = "Scriptable Objects/GameResources")]
 public class GameResources : ScriptableObject
 {
-    [Header("Floor")]
+    [Header("Base Textures")]
     public Sprite floor;
+    public Sprite wall;
 
-    [Header("outerWall Side Edges")]
-    public Sprite outerWallLeft;
-    public Sprite outerWallRight;
+    [Header("1 by x or x by 1 textures")]
+    public Sprite wallTopBottom;
+    public Sprite wallLeftRight;
+    public Sprite wallTopLeftRight;
+    public Sprite wallBottomLeftRight;
 
-    [Header("outerWall Front")]
-    public Sprite outerWallFront;
-    public Sprite outerWallFrontCornerLeft;
-    public Sprite outerWallFrontCornerRight;
+    [Header("Edge textures")]
+    public Sprite wallTop;
+    public Sprite wallBottom;
+    public Sprite wallRight;
+    public Sprite wallLeft;
 
-    [Header("outerWall Top Edge")]
-    public Sprite outerWallTop;
-    public Sprite outerWallTopCornerLeft;
-    public Sprite outerWallTopCornerRight;
+    [Header("Inner corners ")]
+    public Sprite innerCornerBottomRight;
+    public Sprite innerCornerBottomLeft;
+    public Sprite innerCornerTopRight;
+    public Sprite innerCornerTopLeft;
 
-    public Sprite outerWallTopBottom;
-    public Sprite outerWallLeftRight;
-    public Sprite outerWallLeftTopRight;
-    public Sprite outerWallLeftBottomRight;
-    public Sprite outerWallLeftTopBottomRight;
-
-
-
-    [Header("innerWall Side Edges")]
-    public Sprite innerWallLeft;
-    public Sprite innerWallRight;
-
-    [Header("innerWall Front")]
-    public Sprite innerWallFront;
-    public Sprite innerWallFrontCornerLeft;
-    public Sprite innerWallFrontCornerRight;
-
-    [Header("innerWall Top Edge")]
-    public Sprite innerWallTop;
-    public Sprite innerWallTopCornerLeft;
-    public Sprite innerWallTopCornerRight;
-
-    public Sprite innerWallTopBottom;
-    public Sprite innerWallLeftRight;
-    public Sprite innerWallLeftTopRight;
-    public Sprite innerWallLeftBottomRight;
+    [Header("Outer corners")]
+    public Sprite outerCornerBottomRight;
+    public Sprite outerCornerBottomLeft;
+    public Sprite outerCornerTopRight;
+    public Sprite outerCornerTopLeft;
 }
