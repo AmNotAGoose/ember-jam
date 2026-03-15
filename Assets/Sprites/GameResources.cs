@@ -1,8 +1,13 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameResources", menuName = "Scriptable Objects/GameResources")]
-public class GameResources : ScriptableObject
+public abstract class GameResources : ScriptableObject
 {
+    public GameObject playerAssets;
+    
+    public Sprite filledHole;
+    public Sprite emptyHole;
+
     [Header("Base Textures")]
     public Sprite floor;
     public Sprite wall;
@@ -12,6 +17,8 @@ public class GameResources : ScriptableObject
     public Sprite wallLeftRight;
     public Sprite wallTopLeftRight;
     public Sprite wallBottomLeftRight;
+    public Sprite wallTopBottomLeft;
+    public Sprite wallTopBottomRight;
 
     [Header("Edge textures")]
     public Sprite wallTop;

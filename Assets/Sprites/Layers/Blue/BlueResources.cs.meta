@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 59f21324d1f2c0143a42b6c0a9cf14a7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerAssets: {fileID: 5794249219869057819, guid: 6ab8b20b42fe7304fb168b5ef99eee40, type: 3}
+  - floor: {fileID: 21300000, guid: e39c0378d265c8f448de28a72afe0b3c, type: 2}
+  - wall: {fileID: 21300000, guid: 995fd701537911945bd89e25a653d3a9, type: 2}
+  - wallTopBottom: {fileID: 21300000, guid: 2703cbde8f782384b946871d6093b0dc, type: 2}
+  - wallLeftRight: {fileID: 21300000, guid: 4042623100cfb5b4cb92f7c5437567f3, type: 2}
+  - wallTopLeftRight: {fileID: 21300000, guid: f4fc6b4ac206b7146bc00b82e12fddfd, type: 2}
+  - wallBottomLeftRight: {fileID: 21300000, guid: 08c6c72f03f01bf4bb46aabced75ce60, type: 2}
+  - wallTop: {fileID: 21300000, guid: 969e771b6b654d34f9f79908ebbb1099, type: 2}
+  - wallBottom: {fileID: 21300000, guid: e6d6290427390164aa43128c54598932, type: 2}
+  - wallRight: {fileID: 21300000, guid: b7ed3c40fe7193e4693b8580103d6438, type: 2}
+  - wallLeft: {fileID: 21300000, guid: 0290c6cf9728a674daf8dc09fed2d85e, type: 2}
+  - innerCornerBottomRight: {fileID: 21300000, guid: a99b21d886bd3e54e881a74b3972703b, type: 2}
+  - innerCornerBottomLeft: {fileID: 21300000, guid: 34eb8e55013d9604ab8e2cd96f175760, type: 2}
+  - innerCornerTopRight: {fileID: 21300000, guid: baacd2a2c0aeedc429fc9f72d794f489, type: 2}
+  - innerCornerTopLeft: {fileID: 21300000, guid: 050bb5757c5e57c4a8b44a7aa6cf1f93, type: 2}
+  - outerCornerBottomRight: {fileID: 21300000, guid: ca6e7a86b35418f41a6d52290c94bc89, type: 2}
+  - outerCornerBottomLeft: {fileID: 21300000, guid: 5558b7ba2ccbc1848bfef543732eb024, type: 2}
+  - outerCornerTopRight: {fileID: 21300000, guid: 198ab30b30e223045aafa50e45a2301a, type: 2}
+  - outerCornerTopLeft: {fileID: 21300000, guid: 93ffc1f11ed273f48983fa2c89cdfe15, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

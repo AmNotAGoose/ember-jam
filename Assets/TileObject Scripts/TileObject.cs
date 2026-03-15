@@ -35,7 +35,7 @@ public abstract class TileObject : MonoBehaviour
         }
         transform.localPosition = Vector3.zero;
         isMoving = false;
-    }
+    } 
 
     public virtual void OnTileObjectRemoved() { }
     public virtual void OnTileObjectAdded()

@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 
 public class Tile : MonoBehaviour
@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
     public int k;
     public List<TileObject> tileObjects;
     public Layer layer;
+    public SpriteRenderer tileSprite;
 
     public TileObject PopObject(TileObject objectToRemove)
     { 
@@ -67,5 +68,14 @@ public class Tile : MonoBehaviour
         {
             tileObject.OnAffectedTickFinished();
         }
+    } 
+    public bool HasWall()
+    {
+        return tileObjects.Exists(o => o is Wall);
+    }
+
+    public void SetInnerSprite(Sprite spr)
+    {
+        tileSprite.sprite = spr;
     }
 }

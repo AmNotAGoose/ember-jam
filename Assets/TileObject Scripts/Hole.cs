@@ -25,5 +25,7 @@ public class Hole : TileObject
         {
             level.TryDrop(tile);
         }
+
+        sprite.sprite = level.GetHoleTexture(this);
     }
 }

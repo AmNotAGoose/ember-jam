@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: 25a1713152e31454d8f0a002b5254436
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3683004140809926483
+    second: tooth_0
+  - first:
+      213: -4553478323057624988
+    second: tooth_1
+  - first:
+      213: -5880581848502832323
+    second: tooth_2
+  - first:
+      213: 4301044710206738505
+    second: tooth_3
+  - first:
+      213: -6860128452474352866
+    second: tooth_4
+  - first:
+      213: -877052939797208084
+    second: tooth_5
+  - first:
+      213: -3493791846290290749
+    second: tooth_6
+  - first:
+      213: 4111126502326612199
+    second: tooth_7
+  - first:
+      213: -174886330998365974
+    second: tooth_8
+  - first:
+      213: 1988381123727346179
+    second: tooth_9
+  - first:
+      213: -6957512224385973072
+    second: tooth_10
+  - first:
+      213: -2715584793098507260
+    second: tooth_11
+  - first:
+      213: -246654703611206816
+    second: tooth_12
+  - first:
+      213: 3905557859680838177
+    second: tooth_13
+  - first:
+      213: 4086845018015405043
+    second: tooth_14
+  - first:
+      213: -3617717087390998282
+    second: tooth_15
+  - first:
+      213: 8955791390454012651
+    second: tooth_16
+  - first:
+      213: -3512977081872819321
+    second: tooth_17
+  - first:
+      213: 9138972267938926226
+    second: tooth_18
+  - first:
+      213: -7346100870006730427
+    second: tooth_19
+  - first:
+      213: 1340315347286987165
+    second: tooth_20
+  - first:
+      213: -6285696973762143124
+    second: tooth_21
+  - first:
+      213: -6506399371014020339
+    second: tooth_22
+  - first:
+      213: -4785818309226425786
+    second: tooth_23
+  - first:
+      213: 443027895920994766
+    second: tooth_24
+  - first:
+      213: -1429281050107436689
+    second: tooth_25
+  - first:
+      213: -6175775219964560356
+    second: tooth_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ToothRed_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f641abfdca7dc438a5f2e5c6cee2f8
+      internalID: -150401609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToothRed_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f6a911a4dbd4e4995aec86092b97c5
+      internalID: -1250489107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 368e2f7384003c14f8583ac4e20caa98
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      ToothRed_0: 1357864149
+      ToothRed_1: 436704766
+      ToothRed_10: -734348392
+      ToothRed_11: 1041792998
+      ToothRed_12: 488119822
+      ToothRed_13: -2001556697
+      ToothRed_14: 713888715
+      ToothRed_15: -1531958243
+      ToothRed_16: -1620076977
+      ToothRed_17: 746815740
+      ToothRed_18: -1849854565
+      ToothRed_19: 1252663012
+      ToothRed_2: -66168020
+      ToothRed_20: -1923713728
+      ToothRed_21: -134908711
+      ToothRed_22: -55161627
+      ToothRed_23: 453574886
+      ToothRed_24: -1731493946
+      ToothRed_25: 284598799
+      ToothRed_26: 1923879705
+      ToothRed_27: 1095944851
+      ToothRed_28: 1408075966
+      ToothRed_29: 591398970
+      ToothRed_3: 2062691206
+      ToothRed_30: 624795289
+      ToothRed_31: -207035223
+      ToothRed_32: -1954456983
+      ToothRed_33: -1088247044
+      ToothRed_34: 640763370
+      ToothRed_35: -42414664
+      ToothRed_36: -1857990451
+      ToothRed_37: 672388828
+      ToothRed_38: -255362304
+      ToothRed_39: -796860092
+      ToothRed_4: -191488307
+      ToothRed_40: 1590108745
+      ToothRed_41: 827686914
+      ToothRed_42: 698607422
+      ToothRed_43: 1879540627
+      ToothRed_44: -2077311967
+      ToothRed_45: -934268573
+      ToothRed_46: 1790852942
+      ToothRed_47: 12072456
+      ToothRed_48: -115929032
+      ToothRed_49: -335298153
+      ToothRed_5: -716086174
+      ToothRed_50: -150401609
+      ToothRed_51: -1250489107
+      ToothRed_52: -168951928
+      ToothRed_53: 1234732555
+      ToothRed_6: -2005054776
+      ToothRed_7: 1531759719
+      ToothRed_8: 386317996
+      ToothRed_9: 1839147382
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

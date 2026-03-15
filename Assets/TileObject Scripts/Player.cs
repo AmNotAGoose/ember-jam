@@ -1,6 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class Player : TileObject
@@ -21,10 +19,17 @@ public class Player : TileObject
     {
         level = FindFirstObjectByType<Level>();
 
+        GameObject playerAssetsObj = Instantiate(level.resources.playerAssets);
+        playerAssetsObj.transform.SetParent(transform);
+        playerAssetsObj.transform.localPosition = Vector3.zero;
+        playerAssets = playerAssetsObj.GetComponent<PlayerAssets>();
+
+        playerAssetsObj.transform.localScale = new Vector3(6.252303f, 6.252303f, 1);
+
         type = "player";
         properties.Add(TileObjectProperies.Pushable);
 
-        level.player = this;    
+        level.player = this;
     }
 
     private void Update()
