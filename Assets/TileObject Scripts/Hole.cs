@@ -10,6 +10,11 @@ public class Hole : TileObject
 
         type = "hole";
     }
+    public override void OnTileObjectAdded()
+    {
+        transform.localScale = Vector3.one;
+        base.OnTileObjectAdded();
+    }
 
     public override void OnAffectedTickFinished()
     {

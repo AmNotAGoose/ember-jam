@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
-using Unity.VisualScripting;
+using System.Linq; 
 using UnityEngine;
 
 public class Level : MonoBehaviour
@@ -12,7 +10,7 @@ public class Level : MonoBehaviour
     public int numLayers;
     public int curLayerIdx = 0; // further down is higher
 
-    int roomScaleFactor = 1;
+    float roomScaleFactor = 1;
 
     public GameObject gridParent;
     public GameObject layerParentPrefab;
@@ -38,7 +36,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        Initialize("5|5|3|=|player,3,3,0|wall,4,3,0|block,2,3,0|hole,1,1,0|hole,1,2,1|hole,1,3,2|bomb,2,0,0,4");
+        Initialize("20|10|3|=|player,3,3,0|wall,4,3,0|block,2,3,0|hole,1,1,0|hole,1,2,1|hole,1,3,2|bomb,2,0,0,4|goal,1,3,1");
     }
 
     public void Initialize(string levelString)
@@ -102,6 +100,23 @@ public class Level : MonoBehaviour
             curLayer.SetLayerVisible(false);
         }
         layers[0].SetLayerVisible(true);
+
+        FitGridToCamera();
+    }
+    public void FitGridToCamera(float margin = 0.9f)
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return;
+
+        float camHeight = cam.orthographicSize * 2f;
+        float camWidth = camHeight * cam.aspect;
+
+        float scaleX = (camWidth / width) * margin;
+        float scaleY = (camHeight / height) * margin;
+
+        roomScaleFactor = (int)Mathf.Min(scaleX, scaleY); 
+
+        gridParent.transform.localScale = Vector3.one * Mathf.Min(scaleX, scaleY);
     }
 
     public Tile GetTile(int x, int y, int k)

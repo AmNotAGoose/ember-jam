@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: 1564593593bb15e4282d52fe44e39500
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3683004140809926483
+    second: tooth_0
+  - first:
+      213: -4553478323057624988
+    second: tooth_1
+  - first:
+      213: -5880581848502832323
+    second: tooth_2
+  - first:
+      213: 4301044710206738505
+    second: tooth_3
+  - first:
+      213: -6860128452474352866
+    second: tooth_4
+  - first:
+      213: -877052939797208084
+    second: tooth_5
+  - first:
+      213: -3493791846290290749
+    second: tooth_6
+  - first:
+      213: 4111126502326612199
+    second: tooth_7
+  - first:
+      213: -174886330998365974
+    second: tooth_8
+  - first:
+      213: 1988381123727346179
+    second: tooth_9
+  - first:
+      213: -6957512224385973072
+    second: tooth_10
+  - first:
+      213: -2715584793098507260
+    second: tooth_11
+  - first:
+      213: -246654703611206816
+    second: tooth_12
+  - first:
+      213: 3905557859680838177
+    second: tooth_13
+  - first:
+      213: 4086845018015405043
+    second: tooth_14
+  - first:
+      213: -3617717087390998282
+    second: tooth_15
+  - first:
+      213: 8955791390454012651
+    second: tooth_16
+  - first:
+      213: -3512977081872819321
+    second: tooth_17
+  - first:
+      213: 9138972267938926226
+    second: tooth_18
+  - first:
+      213: -7346100870006730427
+    second: tooth_19
+  - first:
+      213: 1340315347286987165
+    second: tooth_20
+  - first:
+      213: -6285696973762143124
+    second: tooth_21
+  - first:
+      213: -6506399371014020339
+    second: tooth_22
+  - first:
+      213: -4785818309226425786
+    second: tooth_23
+  - first:
+      213: 443027895920994766
+    second: tooth_24
+  - first:
+      213: -1429281050107436689
+    second: tooth_25
+  - first:
+      213: -6175775219964560356
+    second: tooth_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tooth_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06323199ad4b39cf0800000000000000
+      internalID: -246654703611206816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tooth_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122e20c4e24533630800000000000000
+      internalID: 3905557859680838177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tooth_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f312ee04e367b830800000000000000
+      internalID: 4086845018015405043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tooth_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0e23cf9794bcdc0800000000000000
+      internalID: -3617717087390998282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 368e2f7384003c14f8583ac4e20caa98
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      tooth_0: -3683004140809926483
+      tooth_1: -4553478323057624988
+      tooth_10: -6957512224385973072
+      tooth_11: -2715584793098507260
+      tooth_12: -246654703611206816
+      tooth_13: 3905557859680838177
+      tooth_14: 4086845018015405043
+      tooth_15: -3617717087390998282
+      tooth_16: 8955791390454012651
+      tooth_17: -3512977081872819321
+      tooth_18: 9138972267938926226
+      tooth_19: -7346100870006730427
+      tooth_2: -5880581848502832323
+      tooth_20: 1340315347286987165
+      tooth_21: -6285696973762143124
+      tooth_22: -6506399371014020339
+      tooth_23: -4785818309226425786
+      tooth_24: 443027895920994766
+      tooth_25: -1429281050107436689
+      tooth_26: -6175775219964560356
+      tooth_27: -1267689192
+      tooth_28: 1364695224
+      tooth_29: 948770819
+      tooth_3: 4301044710206738505
+      tooth_30: -1674913564
+      tooth_31: -866409580
+      tooth_32: -307931896
+      tooth_33: 1367700259
+      tooth_34: -1801197306
+      tooth_35: 484394803
+      tooth_36: 782169660
+      tooth_37: -1261811814
+      tooth_38: -1095387613
+      tooth_39: -462312681
+      tooth_4: -6860128452474352866
+      tooth_40: -984219889
+      tooth_41: -1091001509
+      tooth_42: -536639277
+      tooth_43: -172119117
+      tooth_44: -1935216238
+      tooth_45: -1392507992
+      tooth_46: 2002757034
+      tooth_47: 2065191974
+      tooth_48: 1390370726
+      tooth_49: -816970602
+      tooth_5: -877052939797208084
+      tooth_50: -823434916
+      tooth_51: 220532467
+      tooth_52: -743952358
+      tooth_53: -1820860179
+      tooth_6: -3493791846290290749
+      tooth_7: 4111126502326612199
+      tooth_8: -174886330998365974
+      tooth_9: 1988381123727346179
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

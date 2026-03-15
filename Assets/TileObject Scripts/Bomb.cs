@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bomb : TileObject
@@ -8,10 +9,11 @@ public class Bomb : TileObject
     public int curTime;
     public bool detonated;
     public bool exploded;
+    public Animator animator;
 
     void Start()
     {
-        level = FindFirstObjectByType<Level>();
+        level = FindFirstObjectByType<Level>(); 
         level.onPlayerMoveSubscribers.Add(this);
 
         type = "bomb";
@@ -56,6 +58,13 @@ public class Bomb : TileObject
         tile.AddObject(newHole);
         level.TickPlayerTile();
         exploded = true;
+        StartCoroutine(AnimateDestroy());
+    }
+
+    public IEnumerator AnimateDestroy()
+    {
+        animator.Play("Explode");
+        yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
 }

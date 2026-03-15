@@ -7,7 +7,7 @@ public class Goal : TileObject
 
     void Start()
     {
-        level = GetComponent<Level>();
+        level = FindFirstObjectByType<Level>();
         level.goals.Add(this);
     }
 

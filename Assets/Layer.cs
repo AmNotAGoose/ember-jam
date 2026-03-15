@@ -37,8 +37,23 @@ public class Layer : MonoBehaviour
         if (isLastLayer && level.IsWinning() && !isApproaching)
         {
             level.Win();
-            //return;
+            return;
         }
+        
+        if (isLastLayer && !isApproaching)
+        {
+            StopAllCoroutines();
+            SetLayerVisible(false);
+            return;
+        }
+
+        if (startingLayer == 0 && isApproaching) // like genuinely what am i even doing
+        { 
+            StopAllCoroutines();
+            SetLayerVisible(true);
+            return;
+        }
+        
         StopAllCoroutines();
         FadeLayerVisible(isApproaching);
     }

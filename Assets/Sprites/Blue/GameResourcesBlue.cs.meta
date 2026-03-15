@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+guid: ce7768d6f111079488aa502ca90b1eda
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - floor: {fileID: 21300000, guid: e39c0378d265c8f448de28a72afe0b3c, type: 2}
+  - outerWallLeft: {fileID: 21300000, guid: b7ed3c40fe7193e4693b8580103d6438, type: 2}
+  - outerWallRight: {fileID: 21300000, guid: 0290c6cf9728a674daf8dc09fed2d85e, type: 2}
+  - outerWallFront: {fileID: 21300000, guid: 5558b7ba2ccbc1848bfef543732eb024, type: 2}
+  - outerWallFrontCornerLeft: {fileID: 21300000, guid: 5558b7ba2ccbc1848bfef543732eb024, type: 2}
+  - outerWallFrontCornerRight: {fileID: 21300000, guid: ca6e7a86b35418f41a6d52290c94bc89, type: 2}
+  - outerWallTop: {instanceID: 0}
+  - outerWallTopCornerLeft: {instanceID: 0}
+  - outerWallTopCornerRight: {instanceID: 0}
+  - outerWallTopBottom: {instanceID: 0}
+  - outerWallLeftRight: {instanceID: 0}
+  - outerWallLeftTopRight: {instanceID: 0}
+  - outerWallLeftBottomRight: {instanceID: 0}
+  - outerWallLeftTopBottomRight: {instanceID: 0}
+  - innerWallLeft: {instanceID: 0}
+  - innerWallRight: {instanceID: 0}
+  - innerWallFront: {instanceID: 0}
+  - innerWallFrontCornerLeft: {instanceID: 0}
+  - innerWallFrontCornerRight: {instanceID: 0}
+  - innerWallTop: {instanceID: 0}
+  - innerWallTopCornerLeft: {instanceID: 0}
+  - innerWallTopCornerRight: {instanceID: 0}
+  - innerWallTopBottom: {instanceID: 0}
+  - innerWallLeftRight: {instanceID: 0}
+  - innerWallLeftTopRight: {instanceID: 0}
+  - innerWallLeftBottomRight: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

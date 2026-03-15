@@ -51,6 +51,7 @@ MonoBehaviour:
   type: 
   properties: 
   sprite: {fileID: 2153118674990836651}
+  options: []
 --- !u!210 &5917733410484645308
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -61,7 +62,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 14
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!1 &1487291751242311375
