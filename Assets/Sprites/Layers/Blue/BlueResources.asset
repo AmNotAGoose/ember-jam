@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: BlueResources
   m_EditorClassIdentifier: Assembly-CSharp::BlueResources
   playerAssets: {fileID: 5794249219869057819, guid: 6ab8b20b42fe7304fb168b5ef99eee40, type: 3}
-  filledHole: {fileID: -7955819631750886615, guid: 205a4cd5439a9be44ba92e49b9b32244, type: 3}
-  emptyHole: {fileID: 602810036, guid: 205a4cd5439a9be44ba92e49b9b32244, type: 3}
+  music: {fileID: 4586187818332039451, guid: b176eeb85e1024d4e950ba54dbec5025, type: 3}
+  fakeTile: {fileID: 4445091765660304762, guid: 7e07ec66e68c38d47b08aaa10b8e8a22, type: 3}
+  filledHole: {fileID: 21300000, guid: 8c8d3ad68b8029e409e547e8a4a7864f, type: 2}
+  emptyHole: {fileID: 21300000, guid: bd2f865c282505643995f41591faf411, type: 2}
+  winFilledHole: {fileID: 21300000, guid: 12e420c3509b9ab4cbf337864efb4eb5, type: 2}
+  winEmptyHole: {fileID: 21300000, guid: 12e420c3509b9ab4cbf337864efb4eb5, type: 2}
+  box: {fileID: 21300000, guid: e411c475f425dcc45a25c660cb067f17, type: 2}
+  goalUnsatisfied: {fileID: 21300000, guid: 73e16157ebfe79142b32041e1ff684f0, type: 2}
+  goalSatisfied: {fileID: -1313382187, guid: 7d4abcd802bf5704aa9ced8aad71cc27, type: 3}
   floor: {fileID: 21300000, guid: e39c0378d265c8f448de28a72afe0b3c, type: 2}
   wall: {fileID: 21300000, guid: 995fd701537911945bd89e25a653d3a9, type: 2}
   wallTopBottom: {fileID: 21300000, guid: 2703cbde8f782384b946871d6093b0dc, type: 2}
@@ -25,8 +32,8 @@ MonoBehaviour:
   wallTopBottomRight: {fileID: 21300000, guid: 4dce22cb5bbfe494dbcf9c092f5bb3ed, type: 2}
   wallTop: {fileID: 21300000, guid: 969e771b6b654d34f9f79908ebbb1099, type: 2}
   wallBottom: {fileID: 21300000, guid: e6d6290427390164aa43128c54598932, type: 2}
-  wallRight: {fileID: 21300000, guid: b7ed3c40fe7193e4693b8580103d6438, type: 2}
-  wallLeft: {fileID: 21300000, guid: 0290c6cf9728a674daf8dc09fed2d85e, type: 2}
+  wallRight: {fileID: 21300000, guid: 0290c6cf9728a674daf8dc09fed2d85e, type: 2}
+  wallLeft: {fileID: 21300000, guid: b7ed3c40fe7193e4693b8580103d6438, type: 2}
   innerCornerBottomRight: {fileID: 21300000, guid: a99b21d886bd3e54e881a74b3972703b, type: 2}
   innerCornerBottomLeft: {fileID: 21300000, guid: 34eb8e55013d9604ab8e2cd96f175760, type: 2}
   innerCornerTopRight: {fileID: 21300000, guid: baacd2a2c0aeedc429fc9f72d794f489, type: 2}
@@ -35,3 +42,4 @@ MonoBehaviour:
   outerCornerBottomLeft: {fileID: 21300000, guid: 5558b7ba2ccbc1848bfef543732eb024, type: 2}
   outerCornerTopRight: {fileID: 21300000, guid: 198ab30b30e223045aafa50e45a2301a, type: 2}
   outerCornerTopLeft: {fileID: 21300000, guid: 93ffc1f11ed273f48983fa2c89cdfe15, type: 2}
+  wallIsolated: {fileID: -537414732, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}

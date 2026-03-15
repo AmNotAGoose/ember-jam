@@ -5,12 +5,22 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - playerAssets: {fileID: 5794249219869057819, guid: 6ab8b20b42fe7304fb168b5ef99eee40, type: 3}
+  - fakeTile: {fileID: 4445091765660304762, guid: 7e07ec66e68c38d47b08aaa10b8e8a22, type: 3}
+  - filledHole: {instanceID: 0}
+  - emptyHole: {instanceID: 0}
+  - winFilledHole: {instanceID: 0}
+  - winEmptyHole: {instanceID: 0}
+  - box: {instanceID: 0}
+  - goalUnsatisfied: {instanceID: 0}
+  - goalSatisfied: {instanceID: 0}
   - floor: {fileID: 21300000, guid: e39c0378d265c8f448de28a72afe0b3c, type: 2}
   - wall: {fileID: 21300000, guid: 995fd701537911945bd89e25a653d3a9, type: 2}
   - wallTopBottom: {fileID: 21300000, guid: 2703cbde8f782384b946871d6093b0dc, type: 2}
   - wallLeftRight: {fileID: 21300000, guid: 4042623100cfb5b4cb92f7c5437567f3, type: 2}
   - wallTopLeftRight: {fileID: 21300000, guid: f4fc6b4ac206b7146bc00b82e12fddfd, type: 2}
   - wallBottomLeftRight: {fileID: 21300000, guid: 08c6c72f03f01bf4bb46aabced75ce60, type: 2}
+  - wallTopBottomLeft: {instanceID: 0}
+  - wallTopBottomRight: {instanceID: 0}
   - wallTop: {fileID: 21300000, guid: 969e771b6b654d34f9f79908ebbb1099, type: 2}
   - wallBottom: {fileID: 21300000, guid: e6d6290427390164aa43128c54598932, type: 2}
   - wallRight: {fileID: 21300000, guid: b7ed3c40fe7193e4693b8580103d6438, type: 2}
@@ -23,6 +33,7 @@ MonoImporter:
   - outerCornerBottomLeft: {fileID: 21300000, guid: 5558b7ba2ccbc1848bfef543732eb024, type: 2}
   - outerCornerTopRight: {fileID: 21300000, guid: 198ab30b30e223045aafa50e45a2301a, type: 2}
   - outerCornerTopLeft: {fileID: 21300000, guid: 93ffc1f11ed273f48983fa2c89cdfe15, type: 2}
+  - wallIsolated: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

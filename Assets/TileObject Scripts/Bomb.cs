@@ -27,11 +27,12 @@ public class Bomb : TileObject
         base.OnPicked();
         print("picked");
         tile.PopObject(this);
+        level.soundManager.bombPickUp.Play();
     }
     public override void OnPickedFinished()
     {
         base.OnPickedFinished();
-        transform.SetParent(level.player.transform); 
+        transform.SetParent(level.player.transform);
     }
     public override void OnDropped(Tile newTile)
     {
@@ -39,6 +40,7 @@ public class Bomb : TileObject
         newTile.AddObject(this);
         detonated = true;
         properties.Remove(TileObjectProperies.Holdable);
+        level.soundManager.bombHiss.Play();
     }
 
     public override void OnPlayerMove()
@@ -67,6 +69,7 @@ public class Bomb : TileObject
     public IEnumerator AnimateDestroy()
     {
         animator.Play("Explode");
+        level.soundManager.bombExplode.Play();
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }

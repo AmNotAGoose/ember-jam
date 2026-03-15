@@ -4,9 +4,17 @@ using UnityEngine;
 public abstract class GameResources : ScriptableObject
 {
     public GameObject playerAssets;
-    
+    public GameObject music;
+    public GameObject fakeTile;
+
     public Sprite filledHole;
     public Sprite emptyHole;
+    public Sprite winFilledHole;
+    public Sprite winEmptyHole;
+
+    public Sprite box;
+    public Sprite goalUnsatisfied;
+    public Sprite goalSatisfied;
 
     [Header("Base Textures")]
     public Sprite floor;
@@ -37,4 +45,13 @@ public abstract class GameResources : ScriptableObject
     public Sprite outerCornerBottomLeft;
     public Sprite outerCornerTopRight;
     public Sprite outerCornerTopLeft;
+
+    //[Header("double corners and stuff")]
+    public Sprite wallIsolated;
+    //public Sprite outerCornerTopLeft_InnerBottomRight;
+    //public Sprite outerCornerTopRight_InnerBottomLeft;
+    //public Sprite outerCornerBottomLeft_InnerTopRight;
+    //public Sprite outerCornerBottomRight_InnerTopLeft;
+    //public Sprite outerCornersTopLeftBottomRight;
+    //public Sprite outerCornersTopRightBottomLeft;
 }

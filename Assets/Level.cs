@@ -7,6 +7,8 @@ public class Level : MonoBehaviour
 {
     public GameResources resources;
 
+    public SoundManager soundManager;
+
     public int width;
     public int height;
     public int numLayers;
@@ -28,8 +30,8 @@ public class Level : MonoBehaviour
     public Player player;
     public List<Goal> goals;
     public List<TileObject> onPlayerMoveSubscribers;
-
-    public string theme;
+     
+    public string levelString;
 
     [System.Serializable]
     public struct TileObjectPrefabEntry
@@ -39,11 +41,11 @@ public class Level : MonoBehaviour
     }
     public List<TileObjectPrefabEntry> tileObjectPrefabs;
 
+    public bool lastHoleWasWinning;
+
     private void Start()
     {
-        Initialize(
-"8|6|3|=|wall,0,0,0|block,3,3,0|wall,1,0,0|wall,2,0,0|wall,3,0,0|wall,4,0,0|wall,5,0,0|wall,6,0,0|wall,7,0,0|wall,0,1,0|wall,7,1,0|wall,0,2,0|wall,7,2,0|wall,0,3,0|wall,7,3,0|wall,0,4,0|wall,7,4,0|wall,0,5,0|wall,1,5,0|wall,2,5,0|wall,3,5,0|wall,4,5,0|wall,5,5,0|wall,6,5,0|wall,7,5,0|wall,0,0,1|wall,1,0,1|wall,2,0,1|wall,3,0,1|wall,4,0,1|wall,5,0,1|wall,6,0,1|wall,7,0,1|wall,0,1,1|wall,7,1,1|wall,0,2,1|wall,7,2,1|wall,0,3,1|wall,7,3,1|wall,0,4,1|wall,7,4,1|wall,0,5,1|wall,1,5,1|wall,2,5,1|wall,3,5,1|wall,4,5,1|wall,5,5,1|wall,6,5,1|wall,7,5,1|wall,0,0,2|wall,1,0,2|wall,2,0,2|wall,3,0,2|wall,4,0,2|wall,5,0,2|wall,6,0,2|wall,7,0,2|wall,0,1,2|wall,7,1,2|wall,0,2,2|wall,7,2,2|wall,0,3,2|wall,7,3,2|wall,0,4,2|wall,7,4,2|wall,0,5,2|wall,1,5,2|wall,2,5,2|wall,3,5,2|wall,4,5,2|wall,5,5,2|wall,6,5,2|wall,7,5,2|player,3,2,0|bomb,2,2,0,4|hole,4,2,0|hole,5,3,0|goal,5,2,1|hole,3,3,1|goal,4,4,2"
-);
+        Initialize(levelString);
     }
 
     public void Initialize(string levelString)
@@ -88,6 +90,23 @@ public class Level : MonoBehaviour
                     curTile.SetInnerSprite(resources.floor);
                 }
             }
+
+            int border = 10;
+            for (int i = -border; i < width + border; i++)
+            {
+                for (int j = -border; j < height + border; j++)
+                {
+                    if (i >= 0 && i < width && j >= 0 && j < height) continue;
+
+                    GameObject fakeTileObj = Instantiate(resources.fakeTile, Vector3.zero, Quaternion.identity);
+                    fakeTileObj.transform.SetParent(curLayerObj.transform);
+                    fakeTileObj.transform.localPosition = new Vector3(
+                        i - (width - 1) / 2f,
+                        j - (height - 1) / 2f,
+                        0
+                    );
+                }
+            }
         }
 
         layers[^1].isLastLayer = true;
@@ -117,6 +136,11 @@ public class Level : MonoBehaviour
         foreach (Hole hole in FindObjectsByType<Hole>(FindObjectsSortMode.None))
         {
             hole.sprite.sprite = GetHoleTexture(hole);
+        }
+
+        foreach (Goal goal in FindObjectsByType<Goal>(FindObjectsSortMode.None))
+        {
+            goal.sprite.sprite = GetGoalTexture(goal);
         }
 
         FitGridToCamera();
@@ -175,7 +199,7 @@ public class Level : MonoBehaviour
     {
         Tile objTile = objectToMove.tile;
 
-        int curX = objTile.x; 
+        int curX = objTile.x;
         int curY = objTile.y;
         int curK = objTile.k;
 
@@ -219,8 +243,9 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void TryDrop(Tile objectTile)
+    public void TryDrop(Hole hole)
     {
+        Tile objectTile = hole.tile;
         int x = objectTile.x;
         int y = objectTile.y;
         int objectLayer = objectTile.k;
@@ -229,11 +254,13 @@ public class Level : MonoBehaviour
         Tile targetTile = GetTile(x, y, nextLayer); 
 
         if (targetTile == null) return;
-        if (targetTile.IsStopping() || targetTile.IsPushable()) return; 
+        if (targetTile.IsStopping() || targetTile.IsPushable()) return;
+
+        lastHoleWasWinning = hole.isWinHole;
 
         List<TileObject> popped = objectTile.PopObjectsByProperty(TileObjectProperies.Pushable);
         targetTile.AddObjects(popped);
-
+        layers[nextLayer].RefreshRenderers();
         targetTile.OnAffectedTickFinished();
     }
 
@@ -253,21 +280,40 @@ public class Level : MonoBehaviour
 
     public bool IsWinning()
     {
+        if (!lastHoleWasWinning)
+        {
+            lastHoleWasWinning = false; 
+            return false;
+        }
+        lastHoleWasWinning = false;
         return goals.All(goal => goal.satisfied);
     }
 
     public void Win()
     {
+        print("wewin");
+    }
 
+    public Sprite GetGoalTexture(Goal goal)
+    {
+        return goal.satisfied ? resources.goalSatisfied : resources.goalUnsatisfied;
     }
 
     public Sprite GetHoleTexture(Hole hole)
     {
         int nextLayer = (hole.tile.k + 1) % numLayers;
         Tile nextTile = tiles[hole.tile.x, hole.tile.y, nextLayer];
-        if (!nextTile.IsPushable() && !nextTile.IsStopping())
+        if (!nextTile.IsPushable() && !nextTile .IsStopping())
         {
+            if (hole.isWinHole)
+            {
+                return resources.winEmptyHole;
+            }
             return resources.emptyHole;
+        }
+        if (hole.isWinHole)
+        {
+            return resources.winFilledHole;
         }
         return resources.filledHole;    
     }
@@ -277,10 +323,10 @@ public class Level : MonoBehaviour
         Tile tile = wall.tile;
         int x = tile.x, y = tile.y, k = tile.k;
 
-        bool top = GetTile(x, y + 1, k)?.HasWall() != true;
-        bool bottom = GetTile(x, y - 1, k)?.HasWall() != true;
-        bool left = GetTile(x - 1, y, k)?.HasWall() != true;
-        bool right = GetTile(x + 1, y, k)?.HasWall() != true;
+        bool top = GetTile(x, y + 1, k)?.HasWall() == false;
+        bool bottom = GetTile(x, y - 1, k)?.HasWall() == false;
+        bool left = GetTile(x - 1, y, k)?.HasWall() == false;
+        bool right = GetTile(x + 1, y, k)?.HasWall() == false;
 
         // 3 sides exposed
         if (top && bottom && left && !right) return resources.wallTopBottomLeft;
@@ -305,10 +351,10 @@ public class Level : MonoBehaviour
         if (right) return resources.wallRight;
 
         // 0 cardinal floors (check diagonals for inner corners )
-        bool diagTopRight = GetTile(x + 1, y + 1, k)?.HasWall() != true;
-        bool diagTopLeft = GetTile(x - 1, y + 1, k)?.HasWall() != true;
-        bool diagBottomRight = GetTile(x + 1, y - 1, k)?.HasWall() != true;
-        bool diagBottomLeft = GetTile(x - 1, y - 1, k)?.HasWall() != true;
+        bool diagTopRight = GetTile(x + 1, y + 1, k)?.HasWall() == false;
+        bool diagTopLeft = GetTile(x - 1, y + 1, k)?.HasWall() == false;
+        bool diagBottomRight = GetTile(x + 1, y - 1, k)?.HasWall() == false;
+        bool diagBottomLeft = GetTile(x - 1, y - 1, k)?.HasWall() == false;
 
         if (diagTopRight) return resources.innerCornerTopRight;
         if (diagTopLeft) return resources.innerCornerTopLeft;

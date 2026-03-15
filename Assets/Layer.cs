@@ -22,8 +22,10 @@ public class Layer : MonoBehaviour
 
     public void RefreshRenderers()
     {
+        level = FindFirstObjectByType<Level>();
         sortingGroup.sortingOrder = totalLayers - startingLayer;
-        renderers = GetComponentsInChildren<SpriteRenderer>(); 
+        renderers = GetComponentsInChildren<SpriteRenderer>();
+        SetAlpha(level.curLayerIdx == startingLayer ? 1 : 0);
     }
 
     public void SetLayerVisible(bool isActive)

@@ -13,6 +13,11 @@ public class Tile : MonoBehaviour
     public Layer layer;
     public SpriteRenderer tileSprite;
 
+    private void Start()
+    {
+        layer = GetComponentInParent<Layer>();
+    }
+
     public TileObject PopObject(TileObject objectToRemove)
     { 
         if (tileObjects.Remove(objectToRemove))
