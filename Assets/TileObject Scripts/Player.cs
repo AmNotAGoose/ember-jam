@@ -15,6 +15,7 @@ public class Player : TileObject
 
     public TileObject heldObject;
     public PlayerAssets playerAssets;
+    public bool isPaused = false;
 
     void Start()
     {
@@ -40,11 +41,11 @@ public class Player : TileObject
         xDir = 0;
         yDir = 0;
 
-        if (Input.GetKey(KeyCode.UpArrow)) yDir = 1;
-        if (Input.GetKey(KeyCode.DownArrow)) yDir = -1;
-        if (Input.GetKey(KeyCode.RightArrow)) xDir = 1;
-        if (Input.GetKey(KeyCode.LeftArrow)) xDir = -1;
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.UpArrow) && !isPaused) yDir = 1;
+        if (Input.GetKey(KeyCode.DownArrow) && !isPaused) yDir = -1;
+        if (Input.GetKey(KeyCode.RightArrow) && !isPaused) xDir = 1;
+        if (Input.GetKey(KeyCode.LeftArrow) && !isPaused) xDir = -1;
+        if (Input.GetKey(KeyCode.R) && !isPaused)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

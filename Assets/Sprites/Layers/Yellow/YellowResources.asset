@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f21324d1f2c0143a42b6c0a9cf14a7, type: 3}
   m_Name: YellowResources
   m_EditorClassIdentifier: Assembly-CSharp::BlueResources
-  playerAssets: {fileID: 5794249219869057819, guid: 57186b35225276649ab1c2efa6d806ae, type: 3}
+  playerAssets: {fileID: 5794249219869057819, guid: 89e3bcda52509074a8a8e3a27ee6b274, type: 3}
   music: {fileID: 3866810601333449042, guid: e1748e8c8b82eae4a86a2b6fe9d7bfbf, type: 3}
   fakeTile: {fileID: 3569580889732520780, guid: 3c211e851029b8c4ebebc09da9e2d631, type: 3}
   filledHole: {fileID: 21300000, guid: 9615853a628540849b60be75d9eba797, type: 2}
@@ -44,3 +44,7 @@ MonoBehaviour:
   outerCornerTopRight: {fileID: -121208827, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
   outerCornerTopLeft: {fileID: -797967327, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
   wallIsolated: {fileID: -335048290, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
+  spCornerBottomRight: {fileID: 24846166, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
+  spCornerBottomLeft: {fileID: 1650788967, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
+  spCornerTopRight: {fileID: 1510642050, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
+  spCornerTopLeft: {fileID: 328402950, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}

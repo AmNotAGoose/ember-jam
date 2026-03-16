@@ -44,3 +44,7 @@ MonoBehaviour:
   outerCornerTopRight: {fileID: -854686304, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
   outerCornerTopLeft: {fileID: -1749407563, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
   wallIsolated: {fileID: 1578365933, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  spCornerBottomRight: {fileID: 967674519, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  spCornerBottomLeft: {fileID: 1558686059, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  spCornerTopRight: {fileID: 675791194, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  spCornerTopLeft: {fileID: -1275918432, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}

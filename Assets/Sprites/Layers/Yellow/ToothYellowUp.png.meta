@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: 2955663fe9bfa4447b85821f5cdac046
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3683004140809926483
+    second: tooth_0
+  - first:
+      213: -4553478323057624988
+    second: tooth_1
+  - first:
+      213: -5880581848502832323
+    second: tooth_2
+  - first:
+      213: 4301044710206738505
+    second: tooth_3
+  - first:
+      213: -6860128452474352866
+    second: tooth_4
+  - first:
+      213: -877052939797208084
+    second: tooth_5
+  - first:
+      213: -3493791846290290749
+    second: tooth_6
+  - first:
+      213: 4111126502326612199
+    second: tooth_7
+  - first:
+      213: -174886330998365974
+    second: tooth_8
+  - first:
+      213: 1988381123727346179
+    second: tooth_9
+  - first:
+      213: -6957512224385973072
+    second: tooth_10
+  - first:
+      213: -2715584793098507260
+    second: tooth_11
+  - first:
+      213: -246654703611206816
+    second: tooth_12
+  - first:
+      213: 3905557859680838177
+    second: tooth_13
+  - first:
+      213: 4086845018015405043
+    second: tooth_14
+  - first:
+      213: -3617717087390998282
+    second: tooth_15
+  - first:
+      213: 8955791390454012651
+    second: tooth_16
+  - first:
+      213: -3512977081872819321
+    second: tooth_17
+  - first:
+      213: 9138972267938926226
+    second: tooth_18
+  - first:
+      213: -7346100870006730427
+    second: tooth_19
+  - first:
+      213: 1340315347286987165
+    second: tooth_20
+  - first:
+      213: -6285696973762143124
+    second: tooth_21
+  - first:
+      213: -6506399371014020339
+    second: tooth_22
+  - first:
+      213: -4785818309226425786
+    second: tooth_23
+  - first:
+      213: 443027895920994766
+    second: tooth_24
+  - first:
+      213: -1429281050107436689
+    second: tooth_25
+  - first:
+      213: -6175775219964560356
+    second: tooth_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ToothYellow_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4736076233078c94d99f621be34f7434
+      internalID: -1564405952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToothYellow_33
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fef4c218c2a3f24c943862cfed9a424
+      internalID: 1937035507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToothYellow_34
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443cbb0de3bd26c4081802bf274978fc
+      internalID: -89918936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToothYellow_35
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b91acddede3d6a4781fba03c348888b
+      internalID: 1033034856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 368e2f7384003c14f8583ac4e20caa98
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      ToothYellow_0: 2125003493
+      ToothYellow_1: -1548837138
+      ToothYellow_10: 1269997363
+      ToothYellow_11: 1560103020
+      ToothYellow_12: -1095032444
+      ToothYellow_13: -1152483349
+      ToothYellow_14: -617006353
+      ToothYellow_15: -74600930
+      ToothYellow_16: 936487505
+      ToothYellow_17: -704797383
+      ToothYellow_18: -1372598384
+      ToothYellow_19: -1696147483
+      ToothYellow_2: -1091599651
+      ToothYellow_20: -373451835
+      ToothYellow_21: 1825476263
+      ToothYellow_22: -372536488
+      ToothYellow_23: 1433387314
+      ToothYellow_24: -1490023382
+      ToothYellow_25: 651731704
+      ToothYellow_26: -135452670
+      ToothYellow_27: -2114671895
+      ToothYellow_28: -444588924
+      ToothYellow_29: 1675273668
+      ToothYellow_3: 848708707
+      ToothYellow_30: 927540641
+      ToothYellow_31: -449894393
+      ToothYellow_32: -1564405952
+      ToothYellow_33: 1937035507
+      ToothYellow_34: -89918936
+      ToothYellow_35: 1033034856
+      ToothYellow_36: 1600383136
+      ToothYellow_37: 2111646614
+      ToothYellow_38: -15237582
+      ToothYellow_39: 922795810
+      ToothYellow_4: 667625824
+      ToothYellow_40: -181026949
+      ToothYellow_41: 760487099
+      ToothYellow_42: 921694944
+      ToothYellow_43: 2113203239
+      ToothYellow_44: 651350172
+      ToothYellow_45: 635937581
+      ToothYellow_46: -396613846
+      ToothYellow_47: -349813848
+      ToothYellow_48: -1363719980
+      ToothYellow_49: -1659711724
+      ToothYellow_5: 548629135
+      ToothYellow_50: 387135929
+      ToothYellow_51: -1024742026
+      ToothYellow_52: 1044408456
+      ToothYellow_53: -414995581
+      ToothYellow_6: 947212573
+      ToothYellow_7: 1860069243
+      ToothYellow_8: -1001029056
+      ToothYellow_9: 1390663887
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
