@@ -55,7 +55,7 @@ public class InGameUI : MonoBehaviour
         }
         else if (name.StartsWith("Lemon"))
         {
-            color1 = Hex("#FFFF99");
+            color1 = Hex("#B06901");
             color2 = Hex("#FFFFB3");
         }
         else if (name.StartsWith("Blueberry"))
