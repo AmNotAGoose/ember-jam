@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f21324d1f2c0143a42b6c0a9cf14a7, type: 3}
+  m_Name: RedResources
+  m_EditorClassIdentifier: Assembly-CSharp::BlueResources
+  playerAssets: {fileID: 5794249219869057819, guid: 57186b35225276649ab1c2efa6d806ae, type: 3}
+  music: {fileID: 8481409977202342289, guid: 64513e901079ad6479f5349ad5054720, type: 3}
+  fakeTile: {fileID: 252435774305057249, guid: 5143f1c8329365648972d5cf8defe638, type: 3}
+  filledHole: {fileID: 21300000, guid: ac2964b375c09d540ae179db8a46effe, type: 2}
+  emptyHole: {fileID: 21300000, guid: c75aa0f0f4efe994088ed18535b96112, type: 2}
+  winFilledHole: {fileID: 21300000, guid: ff69070ec47f851478a4581be0b46bbb, type: 2}
+  winEmptyHole: {fileID: 21300000, guid: ff69070ec47f851478a4581be0b46bbb, type: 2}
+  box: {fileID: 21300000, guid: a92fdb80cf480d840b46e10c79ad55a3, type: 2}
+  goalUnsatisfied: {fileID: 21300000, guid: 32ffa0f4c9eaa74468a64ef6a64a2e66, type: 2}
+  goalSatisfied: {fileID: 21300000, guid: 32ffa0f4c9eaa74468a64ef6a64a2e66, type: 2}
+  floor: {fileID: -389141644, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wall: {fileID: 4422595259817639072, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallTopBottom: {fileID: -1309432176, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallLeftRight: {fileID: 723311945, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallTopLeftRight: {fileID: -366583765, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallBottomLeftRight: {fileID: 307992354, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallTopBottomLeft: {fileID: 1547358676, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallTopBottomRight: {fileID: 1750880483, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallTop: {fileID: 357938460, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallBottom: {fileID: -1660634848, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallRight: {fileID: 110804529, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallLeft: {fileID: -1930635773, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  innerCornerBottomRight: {fileID: 1123038954, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  innerCornerBottomLeft: {fileID: 1490467319, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  innerCornerTopRight: {fileID: 757623832, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  innerCornerTopLeft: {fileID: -1999013027, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  outerCornerBottomRight: {fileID: 1983940234, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  outerCornerBottomLeft: {fileID: 823150234, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  outerCornerTopRight: {fileID: -854686304, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  outerCornerTopLeft: {fileID: -1749407563, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}
+  wallIsolated: {fileID: 1578365933, guid: aae91a8e2d887064a95d9cc968d9c0ea, type: 3}

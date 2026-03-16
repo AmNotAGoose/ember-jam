@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : TileObject
 {
@@ -43,12 +44,17 @@ public class Player : TileObject
         else if (Input.GetKey(KeyCode.DownArrow)) yDir = -1;
         else if (Input.GetKey(KeyCode.RightArrow)) xDir = 1;
         else if (Input.GetKey(KeyCode.LeftArrow)) xDir = -1;
+        else if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         if ((xDir != 0 || yDir != 0) && moveTimer <= 0f)
         {
             moveTimer = moveDelay;
             level.TryMovePlayer(xDir, yDir);
-        } else if ((xDir == 0 && yDir == 0))
+        }
+        else if ((xDir == 0 && yDir == 0))
         {
             playerAssets.SetIdleAnimation();
         }

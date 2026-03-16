@@ -15,5 +15,10 @@ public class Goal : TileObject
     {
         base.OnAffectedTickFinished();
         satisfied = tile.tileObjects.Count > 1;
+
+        if (satisfied)
+        {
+            level.soundManager.goalSatisfy.Play();
+        }
     }
 }

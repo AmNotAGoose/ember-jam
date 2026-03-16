@@ -229,6 +229,8 @@ public class Level : MonoBehaviour
 
         if (!canMove) return;
 
+        soundManager.PlayFootstep();
+
         List<TileObject> poppedObjects = new();
         foreach (Tile tile in affectedTiles)
         {
@@ -257,6 +259,7 @@ public class Level : MonoBehaviour
         if (targetTile.IsStopping() || targetTile.IsPushable()) return;
 
         lastHoleWasWinning = hole.isWinHole;
+        soundManager.layerFall.Play();
 
         List<TileObject> popped = objectTile.PopObjectsByProperty(TileObjectProperies.Pushable);
         targetTile.AddObjects(popped);
@@ -292,6 +295,7 @@ public class Level : MonoBehaviour
     public void Win()
     {
         print("wewin");
+        soundManager.winLevel.Play();
     }
 
     public Sprite GetGoalTexture(Goal goal)
@@ -318,7 +322,7 @@ public class Level : MonoBehaviour
         return resources.filledHole;    
     }
 
-    public Sprite GetWallTexture(Wall wall)
+    public Sprite GetWallTexture(Wall wall) // thank you mr. claude
     {
         Tile tile = wall.tile;
         int x = tile.x, y = tile.y, k = tile.k;
