@@ -12,6 +12,8 @@ public abstract class GameResources : ScriptableObject
     public Sprite winFilledHole;
     public Sprite winEmptyHole;
 
+    public Sprite unbombable;
+
     public Sprite box;
     public Sprite goalUnsatisfied;
     public Sprite goalSatisfied;
@@ -54,4 +56,12 @@ public abstract class GameResources : ScriptableObject
     //public Sprite outerCornerBottomRight_InnerTopLeft;
     //public Sprite outerCornersTopLeftBottomRight;
     //public Sprite outerCornersTopRightBottomLeft;
+
+
+
+    [Header("Special corners")] // the mentioned parts are the inner section
+    public Sprite spCornerBottomRight;
+    public Sprite spCornerBottomLeft;
+    public Sprite spCornerTopRight;
+    public Sprite spCornerTopLeft;
 }

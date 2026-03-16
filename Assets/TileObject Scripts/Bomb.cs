@@ -58,9 +58,16 @@ public class Bomb : TileObject
 
     public virtual void Explode()
     {
-        Hole newHole = Instantiate(level.prefabDict["hole"], Vector3.zero, Quaternion.identity).GetComponent<Hole>();
-        tile.PopObject(this);
-        tile.AddObject(newHole);
+        if (tile.IsUnbombable())
+        {
+            tile.PopObject(this);
+        } else
+        {
+            Hole newHole = Instantiate(level.prefabDict["hole"], Vector3.zero, Quaternion.identity).GetComponent<Hole>();
+            tile.PopObject(this);
+            tile.AddObject(newHole);
+        }
+
         level.TickPlayerTile();
         exploded = true;
         StartCoroutine(AnimateDestroy());

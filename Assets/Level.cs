@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq; 
-using UnityEngine;
+using UnityEngine; 
+using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
@@ -41,10 +43,23 @@ public class Level : MonoBehaviour
     }
     public List<TileObjectPrefabEntry> tileObjectPrefabs;
 
+    public GameObject levelStartScreen;
+    public GameObject infLoopScreen;
+    public GameObject winScreen;
+
     public bool lastHoleWasWinning;
+
+    public string nextLevel;
 
     private void Start()
     {
+        StartCoroutine(ShowScreenThenInitialize());
+    }
+
+    public IEnumerator ShowScreenThenInitialize()
+    {
+        yield return new WaitForSeconds(0.5f);
+        levelStartScreen.SetActive(false);
         Initialize(levelString);
     }
 
@@ -179,6 +194,18 @@ public class Level : MonoBehaviour
         TryPickUpObject();
     }
 
+    public IEnumerator ShowInfiniteLoopAndRestart()
+    {
+        foreach (AudioSource source in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            source.Stop();
+        }
+        soundManager.bombExplode.Play();
+        infLoopScreen.SetActive(true);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     void TryPickUpObject()
     {
         if (player.heldObject != null) return;
@@ -252,11 +279,21 @@ public class Level : MonoBehaviour
         int y = objectTile.y;
         int objectLayer = objectTile.k;
 
+        if (hole.isWinHole && objectTile == player.tile && goals.All(goal => goal.satisfied))
+        {
+            Win();
+            return;
+        }
+
         int nextLayer = (objectLayer + 1) % numLayers;
         Tile targetTile = GetTile(x, y, nextLayer); 
 
         if (targetTile == null) return;
         if (targetTile.IsStopping() || targetTile.IsPushable()) return;
+        if (WillInfiniteLoop(x, y)) {
+            StartCoroutine(ShowInfiniteLoopAndRestart());
+            return;
+        }
 
         lastHoleWasWinning = hole.isWinHole;
         soundManager.layerFall.Play();
@@ -265,6 +302,16 @@ public class Level : MonoBehaviour
         targetTile.AddObjects(popped);
         layers[nextLayer].RefreshRenderers();
         targetTile.OnAffectedTickFinished();
+    }
+
+    public bool WillInfiniteLoop(int x, int y)
+    {
+        for (int k = 0; k < numLayers; k++)
+        {
+            Tile tile = GetTile(x, y, k);
+            if (tile == null || !tile.HasHole()) return false;
+        }
+        return true;
     }
 
     public void TickPlayerTile()
@@ -295,7 +342,19 @@ public class Level : MonoBehaviour
     public void Win()
     {
         print("wewin");
+        foreach (AudioSource source in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            source.Stop();
+        }
         soundManager.winLevel.Play();
+        StartCoroutine(PlayWinEffectsAndLoadNext());
+    }
+
+    public IEnumerator PlayWinEffectsAndLoadNext()
+    {
+        winScreen.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(nextLevel);
     }
 
     public Sprite GetGoalTexture(Goal goal)
@@ -332,6 +391,13 @@ public class Level : MonoBehaviour
         bool left = GetTile(x - 1, y, k)?.HasWall() == false;
         bool right = GetTile(x + 1, y, k)?.HasWall() == false;
 
+        bool diagTopRight = GetTile(x + 1, y + 1, k)?.HasWall() == false;
+        bool diagTopLeft = GetTile(x - 1, y + 1, k)?.HasWall() == false;
+        bool diagBottomRight = GetTile(x + 1, y - 1, k)?.HasWall() == false;
+        bool diagBottomLeft = GetTile(x - 1, y - 1, k)?.HasWall() == false;
+
+        if (top && bottom && left && right) return resources.wallIsolated;
+
         // 3 sides exposed
         if (top && bottom && left && !right) return resources.wallTopBottomLeft;
         if (top && bottom && right && !left) return resources.wallTopBottomRight;
@@ -342,11 +408,11 @@ public class Level : MonoBehaviour
         if (top && bottom) return resources.wallTopBottom;
         if (left && right) return resources.wallLeftRight;
 
-        // 2 adjacent sides exposed = outer corner
-        if (top && right) return resources.outerCornerTopRight;
-        if (top && left) return resources.outerCornerTopLeft;
-        if (bottom && right) return resources.outerCornerBottomRight;
-        if (bottom && left) return resources.outerCornerBottomLeft;
+        // 2 adjacent sides exposed = outer corner (or special corner if opposite diagonal is also floor)
+        if (top && right) return diagBottomLeft ? resources.spCornerBottomLeft : resources.outerCornerTopRight;
+        if (top && left) return diagBottomRight ? resources.spCornerBottomRight : resources.outerCornerTopLeft;
+        if (bottom && right) return diagTopLeft ? resources.spCornerTopLeft : resources.outerCornerBottomRight;
+        if (bottom && left) return diagTopRight ? resources.spCornerTopRight : resources.outerCornerBottomLeft;
 
         // 1 side exposed
         if (top) return resources.wallTop;
@@ -354,12 +420,7 @@ public class Level : MonoBehaviour
         if (left) return resources.wallLeft;
         if (right) return resources.wallRight;
 
-        // 0 cardinal floors (check diagonals for inner corners )
-        bool diagTopRight = GetTile(x + 1, y + 1, k)?.HasWall() == false;
-        bool diagTopLeft = GetTile(x - 1, y + 1, k)?.HasWall() == false;
-        bool diagBottomRight = GetTile(x + 1, y - 1, k)?.HasWall() == false;
-        bool diagBottomLeft = GetTile(x - 1, y - 1, k)?.HasWall() == false;
-
+        // 0 cardinal floors — check diagonals for inner corners
         if (diagTopRight) return resources.innerCornerTopRight;
         if (diagTopLeft) return resources.innerCornerTopLeft;
         if (diagBottomRight) return resources.innerCornerBottomRight;

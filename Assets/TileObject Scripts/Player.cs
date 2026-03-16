@@ -11,7 +11,7 @@ public class Player : TileObject
     private float moveTimer = 0f;
 
     public bool canMove = true;
-    public float moveDelay = 0.15f;
+    public float moveDelay = 0.05f;
 
     public TileObject heldObject;
     public PlayerAssets playerAssets;
@@ -41,10 +41,10 @@ public class Player : TileObject
         yDir = 0;
 
         if (Input.GetKey(KeyCode.UpArrow)) yDir = 1;
-        else if (Input.GetKey(KeyCode.DownArrow)) yDir = -1;
-        else if (Input.GetKey(KeyCode.RightArrow)) xDir = 1;
-        else if (Input.GetKey(KeyCode.LeftArrow)) xDir = -1;
-        else if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.DownArrow)) yDir = -1;
+        if (Input.GetKey(KeyCode.RightArrow)) xDir = 1;
+        if (Input.GetKey(KeyCode.LeftArrow)) xDir = -1;
+        if (Input.GetKey(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

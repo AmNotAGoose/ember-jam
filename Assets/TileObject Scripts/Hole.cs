@@ -16,12 +16,12 @@ public class Hole : TileObject
         {
             isWinHole = options[0] == "true";
         }
-        sprite.sprite = level.GetHoleTexture(this);
     }
     public override void OnTileObjectAdded()
     {
         transform.localScale = Vector3.one;
         base.OnTileObjectAdded();
+        UpdateTexture();
     }
 
     public override void OnAffectedTickFinished()
@@ -33,6 +33,7 @@ public class Hole : TileObject
         {
             level.TryDrop(this);
         }
+        UpdateTexture();
     }
 
     public override void OnPlayerMove()
@@ -40,5 +41,11 @@ public class Hole : TileObject
         base.OnPlayerMove();
 
         sprite.sprite = level.GetHoleTexture(this); 
+    } 
+
+    public void UpdateTexture()
+    {
+        if (level == null) level = FindFirstObjectByType<Level>();
+        sprite.sprite = level.GetHoleTexture(this); // and to think a level editor was originally planned
     }
 }

@@ -19,6 +19,7 @@ MonoBehaviour:
   emptyHole: {fileID: 21300000, guid: c20ce163c8be1c64fb480897b7213c77, type: 2}
   winFilledHole: {fileID: 21300000, guid: 8b360f3d6f666134585cec530b4594e4, type: 2}
   winEmptyHole: {fileID: 21300000, guid: 8b360f3d6f666134585cec530b4594e4, type: 2}
+  unbombable: {fileID: -1152840009, guid: adfd6343e56312542bc294b8c0d150d4, type: 3}
   box: {fileID: 21300000, guid: bd7561952413b324a9161f453c64cbf8, type: 2}
   goalUnsatisfied: {fileID: 21300000, guid: 7e97f23570a155840b13ef9ec8267a1d, type: 2}
   goalSatisfied: {fileID: 21300000, guid: 7e97f23570a155840b13ef9ec8267a1d, type: 2}

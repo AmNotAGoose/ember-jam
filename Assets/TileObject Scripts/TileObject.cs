@@ -6,7 +6,8 @@ public enum TileObjectProperies
 {
     Pushable,
     Stopper,
-    Holdable
+    Holdable,
+    Unbombable
 }
 
 public abstract class TileObject : MonoBehaviour

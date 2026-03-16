@@ -19,6 +19,7 @@ MonoBehaviour:
   emptyHole: {fileID: 21300000, guid: bd2f865c282505643995f41591faf411, type: 2}
   winFilledHole: {fileID: 21300000, guid: 12e420c3509b9ab4cbf337864efb4eb5, type: 2}
   winEmptyHole: {fileID: 21300000, guid: 12e420c3509b9ab4cbf337864efb4eb5, type: 2}
+  unbombable: {fileID: 238280201, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}
   box: {fileID: 21300000, guid: e411c475f425dcc45a25c660cb067f17, type: 2}
   goalUnsatisfied: {fileID: 21300000, guid: 73e16157ebfe79142b32041e1ff684f0, type: 2}
   goalSatisfied: {fileID: -1313382187, guid: 7d4abcd802bf5704aa9ced8aad71cc27, type: 3}
@@ -43,3 +44,7 @@ MonoBehaviour:
   outerCornerTopRight: {fileID: 21300000, guid: 198ab30b30e223045aafa50e45a2301a, type: 2}
   outerCornerTopLeft: {fileID: 21300000, guid: 93ffc1f11ed273f48983fa2c89cdfe15, type: 2}
   wallIsolated: {fileID: -537414732, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}
+  spCornerBottomRight: {fileID: -368161632, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}
+  spCornerBottomLeft: {fileID: 1408099206, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}
+  spCornerTopRight: {fileID: -1424156595, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}
+  spCornerTopLeft: {fileID: 1584314659, guid: 72392198bd6dcc642b1e129a2a76d546, type: 3}

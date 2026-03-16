@@ -25,6 +25,7 @@ public class Tile : MonoBehaviour
             objectToRemove.OnTileObjectRemoved();
             return objectToRemove;
         }
+
         return null;
     }
 
@@ -46,7 +47,7 @@ public class Tile : MonoBehaviour
         tileObjects.Add(objectToAdd);
         objectToAdd.tile = this;
         objectToAdd.transform.SetParent(transform);
-        objectToAdd.OnTileObjectAdded();
+        objectToAdd.OnTileObjectAdded(); 
     }
 
     public void AddObjects(List<TileObject> objectsToAdd)
@@ -55,7 +56,7 @@ public class Tile : MonoBehaviour
         {
             AddObject(obj);
         }
-    }
+    } 
 
     public bool IsPushable()
     {
@@ -73,10 +74,21 @@ public class Tile : MonoBehaviour
         {
             tileObject.OnAffectedTickFinished();
         }
-    } 
+    }
+
     public bool HasWall()
     {
         return tileObjects.Exists(o => o is Wall);
+    }
+
+    public bool HasHole()
+    {
+        return tileObjects.Exists(o => o is Hole);
+    }
+
+    public bool IsUnbombable()
+    {
+        return tileObjects.Any(o => o.properties.Contains(TileObjectProperies.Unbombable));
     }
 
     public void SetInnerSprite(Sprite spr)
